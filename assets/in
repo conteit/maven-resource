@@ -99,7 +99,24 @@ args="$args -Drepository.url=$url"
 [ -n "$username" ] && args="$args -Drepository.username=$username";
 [ -n "$password" ] && args="$args -Drepository.password=$password";
 
+
+cat <<EOT >> $resource_dir/pom.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>$groupId</groupId>
+	<artifactId>$artifactId</artifactId>
+	<version>$version</version>
+	<packaging>pom</packaging>
+</project>
+EOT
+
+$resource_dir/mvnw dependency:purge-local-repository -f $resource_dir/pom.xml -DmanualInclude=$groupId:$artifactId:$version
 $resource_dir/mvnw dependency:copy $args
+
+rm $resource_dir/pom.xml
 
 jq -n \
 --arg version "$version" \
