@@ -1,7 +1,14 @@
-# Maven Resource
+# Disclaimer
+See original project: (https://github.com/nulldriver/maven-resource)[https://github.com/nulldriver/maven-resource]
 
-[![CI Builds](https://ci.nulldriver.com/api/v1/teams/resources/pipelines/maven-resource/jobs/test/badge)](https://ci.nulldriver.com/teams/resources/pipelines/maven-resource)
-[![Docker Pulls](https://img.shields.io/docker/pulls/nulldriver/maven-resource.svg)](https://hub.docker.com/r/nulldriver/maven-resource/)
+## Why have I forked the project
+
+I'm experimenting a solution for supporting stage repositories. 
+
+
+# Maven Resource
+(https://ci.nulldriver.com/teams/resources/pipelines/maven-resource)
+[![Docker Pulls](https://img.shields.io/docker/pulls/conteit86/maven-resource.svg)](https://hub.docker.com/r/conteit86/maven-resource/)
 
 Deploys and retrieve artifacts from a Maven Repository Manager.
 
